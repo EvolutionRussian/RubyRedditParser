@@ -47,6 +47,7 @@ ruby RedditParser.rb
 
 ### Then we go to the repository and run the script using the first or second method.
 <img src="/image/2.png" height="600">
+
 ### After running the script, a txt file with links will be automatically created.
 
 
