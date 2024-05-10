@@ -39,7 +39,7 @@ cd RubyRedditParser
 sudo bundle install
 ```
 ### Go to reddit and copy the community names
-<img src="/image/1.png" height="600">
+<img src="/image/1.png" height="500">
 
 ```bash
 ruby RedditParser.rb
