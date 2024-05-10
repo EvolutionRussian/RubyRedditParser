@@ -15,20 +15,6 @@
 
 ### Download Pakets
 
-Downloading mpv for Debian family
-
-```bash
-sudo apt install mpv
-```
-
-Downloading mpv for Arch family
-
-```bash
-sudo pacman -S mpv
-```
-
-For other distributions, downloading mpv is almost the same.
-
 Downloading Ruby and Bundle for Debian family
 
 ```bash
