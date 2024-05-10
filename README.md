@@ -30,11 +30,11 @@ sudo pacman -S ruby && gem install bundler
 ### Download Repository
 
 ```bash
-git clone https://github.com/EvolutionRussian/LoliParser
+git clone https://github.com/EvolutionRussian/RubyRedditParser
 ```
 and
 ```bash
-cd LoliParser
+cd RubyRedditParser
 ```
 ```bash
 sudo bundle install
@@ -43,31 +43,9 @@ sudo bundle install
 ### Starting Skript 
 
 ```bash
-ruby loli.rb
+ruby RedditParser.rb
 ```
 
-### Code modification
-If you need the script to load the received images, then replace or add the code in the <code>begin</code> operator with this
-
-```ruby
-    begin
-      html = URI.open(url)
-      doc = Nokogiri::HTML(html)
-      image_tag = doc.at_css('.fit-width')
-      image_url = image_tag['src']
-
-      system('mkdir -p images')
-
-      filename = File.basename(image_url)
-
-      filepath = File.join('images', filename)
-
-      URI.open(image_url) do |f|
-        File.open(filepath, 'wb') do |file|
-          file.write(f.read)
-        end
-      end
-```
 
 ### what loli?
 ### yes loli loli loli a lot of loli !!!
