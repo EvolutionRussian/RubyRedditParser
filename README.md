@@ -40,16 +40,10 @@ sudo bundle install
 ```
 ### Go to reddit and copy the community names
 <img src="/image/1.png" height="600">
+
 ```bash
 ruby RedditParser.rb
 ```
+
 ### Then we go to the repository and run the script using the first or second method.
 <img src="/image/2.png" height="600">
-
-
-
-
-### what loli?
-### yes loli loli loli a lot of loli !!!
-
-<img align="center" src="https://c.tenor.com/MYCVC47cd7cAAAAd/tenor.gif" width="150"> <img align="center" src="https://c.tenor.com/MYCVC47cd7cAAAAd/tenor.gif" width="150"> <img align="center" src="https://c.tenor.com/MYCVC47cd7cAAAAd/tenor.gif" width="150"> <img align="center" src="https://c.tenor.com/MYCVC47cd7cAAAAd/tenor.gif" width="150"> <img align="center" src="https://c.tenor.com/MYCVC47cd7cAAAAd/tenor.gif" width="150"> 
