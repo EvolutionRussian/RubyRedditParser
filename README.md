@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="icon.png" height="150">
+  <img src="/image/icon.png" height="150">
 </p>
 
 <h2 align="center">RedditParser</h2>
