@@ -57,9 +57,9 @@ ruby RedditParser.rb animegifs -d
 ### You can specify the name of the community when starting, and by specifying the <code>-d</code> key, the result will be downloaded
 <img src="/image/3.png" height="600">
 
-### I hope it helps someone
+### I hope it helps someone (╯✧▽✧)╯
 
-<img align="center" src="/image/4.gif" width="500"> <img align="center" src="/image/5.gif" width="500">
+<img align="center" src="/image/4.gif" width="700">
 
 
 
