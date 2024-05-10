@@ -50,4 +50,8 @@ ruby RedditParser.rb
 
 ### After running the script, a txt file with links will be automatically created.
 
+```bash
+ruby RedditParser.rb animegifs -d
+```
+
 
