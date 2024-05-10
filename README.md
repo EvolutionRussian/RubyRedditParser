@@ -32,7 +32,6 @@ sudo pacman -S ruby && gem install bundler
 ```bash
 git clone https://github.com/EvolutionRussian/RubyRedditParser
 ```
-and
 ```bash
 cd RubyRedditParser
 ```
@@ -41,6 +40,9 @@ sudo bundle install
 ```
 ### Go to reddit and copy the community names
 <img src="/image/1.png" height="600">
+
+### Then we go to the repository and run the script using the first or second method.
+<img src="/image/2.png" height="600">
 
 ### Starting Skript 
 
