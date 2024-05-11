@@ -11,7 +11,6 @@ desc 'Start a console session with Faker loaded'
 task :console do
   require 'irb'
   require 'irb/completion'
-  require 'faker' # You know what to do.
 
   ARGV.clear
   IRB.start
