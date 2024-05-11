@@ -5,7 +5,7 @@ require 'colorize'
 require 'artii'
 
 def banner
-  a = Artii::Base.new :font => 'smslant' # Используем другой шрифт
+  a = Artii::Base.new :font => 'smslant'
   banner_text = a.asciify("RubyRedditParser").chomp.split("\n")
 
   banner_width = banner_text[0].length
