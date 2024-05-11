@@ -32,7 +32,7 @@ if subreddit.nil?
   subreddit = gets.chomp
 end
 
-some_url = "https://www.reddit.com/r/#{subreddit}/.json?limit=5000"
+some_url = "https://www.reddit.com/r/#{subreddit}/.json?limit=50000"
 direct_links = []
 after_param = nil
 
