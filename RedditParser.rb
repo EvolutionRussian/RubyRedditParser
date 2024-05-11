@@ -3,6 +3,7 @@ require 'json'
 require 'uri'
 require 'colorize'
 require 'artii'
+require 'fileutils'
 
 def banner
   a = Artii::Base.new :font => 'smslant'
@@ -67,7 +68,6 @@ loop do
 end
 
 if download_content
-  require 'fileutils'
 
   folder_name = subreddit.downcase
 
