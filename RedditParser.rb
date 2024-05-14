@@ -45,7 +45,7 @@ loop do
 
   some_data.each do |x|
     some_value = x['data']['url']
-    if some_value.match(/\.(jpg|jpeg|gif|mp4|m4s|png)$/i)
+    if some_value.match(/\.(mp4|jpeg|gif|jpg|m4s|png)$/i)
       extension = File.extname(some_value).gsub('.', '').downcase
       extensions_count[extension] += 1
       unless direct_links.include?(some_value)
