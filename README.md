@@ -4,7 +4,7 @@
 
 <h2 align="center">RedditParser</h2>
 
-<h3 align="center"> Parser for the reddit community to search for images and gifs and video </h3>
+<h3 align="center"> Parser for the reddit community to search for images, gifs and video </h3>
 <h3 align="center"> Using this parser you can get a txt sheet with links to files, and also download the result </h3>
 
 <p align="center">
