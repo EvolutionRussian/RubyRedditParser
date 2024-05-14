@@ -44,13 +44,15 @@ loop do
   some_data = the_data['data']['children']
 
   some_data.each do |x|
-    if x['data'].key?('media') && x['data']['media'].key?('reddit_video_preview')
-      some_value = x['data']['media']['reddit_video_preview']['fallback_url']
-    elsif x['data'].key?('preview') && x['data']['preview'].key?('reddit_video_preview')
-      some_value = x['data']['preview']['reddit_video_preview']['fallback_url']
-    else
-      some_value = x['data']['url_overridden_by_dest'] || x['data']['url']
-    end
+some_value = nil
+
+if x['data']['media'] && x['data']['media'].key?('reddit_video_preview')
+  some_value = x['data']['media']['reddit_video_preview']['fallback_url']
+elsif x['data']['preview'] && x['data']['preview'].key?('reddit_video_preview')
+  some_value = x['data']['preview']['reddit_video_preview']['fallback_url']
+else
+  some_value = x['data']['url_overridden_by_dest'] || x['data']['url']
+end
 
     if some_value.match(/\.(mp4|jpeg|gif|jpg|m4s|png)$/i)
       extension = File.extname(some_value).gsub('.', '').downcase
