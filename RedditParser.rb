@@ -44,7 +44,7 @@ loop do
   some_data = the_data['data']['children']
 
   some_data.each do |x|
-    some_value = x['data']['url']['fallback_url']['reddit_video_preview']
+    some_value = x['data']['url_overridden_by_dest'] || x['data']['url']
     if some_value.match(/\.(mp4|jpeg|gif|jpg|m4s|png)$/i)
       extension = File.extname(some_value).gsub('.', '').downcase
       extensions_count[extension] += 1
