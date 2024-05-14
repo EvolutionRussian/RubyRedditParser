@@ -44,7 +44,14 @@ loop do
   some_data = the_data['data']['children']
 
   some_data.each do |x|
-    some_value = x['data']['url_overridden_by_dest'] || x['data']['url']
+    if x['data'].key?('media') && x['data']['media'].key?('reddit_video_preview')
+      some_value = x['data']['media']['reddit_video_preview']['fallback_url']
+    elsif x['data'].key?('preview') && x['data']['preview'].key?('reddit_video_preview')
+      some_value = x['data']['preview']['reddit_video_preview']['fallback_url']
+    else
+      some_value = x['data']['url_overridden_by_dest'] || x['data']['url']
+    end
+
     if some_value.match(/\.(mp4|jpeg|gif|jpg|m4s|png)$/i)
       extension = File.extname(some_value).gsub('.', '').downcase
       extensions_count[extension] += 1
@@ -57,8 +64,6 @@ loop do
   unique_links_count = direct_links.size
   extensions_summary = extensions_count.map { |ext, count| "(#{ext}: #{count})" }.join(' ')
 
-  puts JSON.pretty_generate(the_data)
-  puts "Direct links found: #{direct_links}"
   puts "🌟 Found #{unique_links_count} unique links ".green.on_light_black +
        "#{extensions_summary}".yellow.on_light_black
 
