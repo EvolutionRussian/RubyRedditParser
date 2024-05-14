@@ -57,6 +57,8 @@ loop do
   unique_links_count = direct_links.size
   extensions_summary = extensions_count.map { |ext, count| "(#{ext}: #{count})" }.join(' ')
 
+  puts JSON.pretty_generate(the_data)
+  puts "Direct links found: #{direct_links}"
   puts "🌟 Found #{unique_links_count} unique links ".green.on_light_black +
        "#{extensions_summary}".yellow.on_light_black
 
