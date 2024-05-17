@@ -4,6 +4,7 @@ require 'uri'
 require 'colorize'
 require 'artii'
 require 'fileutils'
+require 'net/http'
 
 def banner
   a = Artii::Base.new :font => 'smslant'
@@ -22,8 +23,17 @@ def banner
   end
 end
 
+def send_to_telegram(token, chat_id, message)
+  uri = URI("https://api.telegram.org/bot#{token}/sendMessage")
+  res = Net::HTTP.post_form(uri, 'chat_id' => chat_id, 'text' => message)
+  unless res.is_a?(Net::HTTPSuccess)
+    puts "❌ Error sending message to Telegram: #{res.body}".red.on_light_black
+  end
+end
+
 subreddit = ARGV[0]
 download_content = ARGV.include?("-d")
+send_to_telegram_flag = ARGV.include?("-t")
 extensions_count = Hash.new(0)
 
 if subreddit.nil?
@@ -44,15 +54,15 @@ loop do
   some_data = the_data['data']['children']
 
   some_data.each do |x|
-some_value = nil
+    some_value = nil
 
-if x['data']['media'] && x['data']['media'].key?('reddit_video_preview')
-  some_value = x['data']['media']['reddit_video_preview']['fallback_url']
-elsif x['data']['preview'] && x['data']['preview'].key?('reddit_video_preview')
-  some_value = x['data']['preview']['reddit_video_preview']['fallback_url']
-else
-  some_value = x['data']['url_overridden_by_dest'] || x['data']['url']
-end
+    if x['data']['media'] && x['data']['media'].key?('reddit_video_preview')
+      some_value = x['data']['media']['reddit_video_preview']['fallback_url']
+    elsif x['data']['preview'] && x['data']['preview'].key?('reddit_video_preview')
+      some_value = x['data']['preview']['reddit_video_preview']['fallback_url']
+    else
+      some_value = x['data']['url_overridden_by_dest'] || x['data']['url']
+    end
 
     if some_value.match(/\.(mp4|jpeg|gif|jpg|m4s|png)$/i)
       extension = File.extname(some_value).gsub('.', '').downcase
@@ -107,4 +117,15 @@ else
   end
 
   puts "🎉 Done. No more new links found.".green.on_light_black
+end
+
+if send_to_telegram_flag
+  print "Enter Telegram Bot Token:".green.on_light_black
+  token = gets.chomp
+  print "Enter Telegram Chat ID:".green.on_light_black
+  chat_id = gets.chomp
+
+  message = "Links from subreddit #{subreddit}:\n" + direct_links.join("\n")
+  send_to_telegram(token, chat_id, message)
+  puts "📤 Sent links to Telegram.".green.on_light_black
 end
